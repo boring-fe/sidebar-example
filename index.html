@@ -4,22 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"
+    />
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/layout.css" />
   </head>
   <body>
     <div class="page-viewport">
-      <div class="layout">
-        <div class="layout__sidebar">
-          Sidebar
+      <div class="layout" id="layout">
+        <div class="layout__sidebar sidebar">
+          <div class="sidebar__content">
+            <ul class="side-menu">
+              <li class="side-menu__item">
+                <a href="" class="side-menu__link">Home</a>
+              </li>
+              <li class="side-menu__item">
+                <a href="" class="side-menu__link">Products</a>
+              </li>
+              <li class="side-menu__item">
+                <a href="" class="side-menu__link">Store</a>
+              </li>
+              <li class="side-menu__item">
+                <a href="" class="side-menu__link">Contact Us</a>
+              </li>
+              <li class="side-menu__item">
+                <a href="" class="side-menu__link">About</a>
+              </li>
+            </ul>
+          </div>
+          <button class="sidebar__control" id="sidebarControl">
+            <span class="mdi mdi-menu"></span>
+          </button>
         </div>
-        <main class="layout__main">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error sunt
-          numquam, repellendus eius aperiam odit, eveniet commodi non neque
-          quisquam reiciendis dolor, aut saepe voluptate excepturi perferendis
-          maxime dignissimos iure.
+        <main class="layout__main" id="main">
+          <div class="baner"></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            animi deleniti harum ipsam error quaerat placeat adipisci, facilis
+            doloribus neque cupiditate blanditiis inventore quibusdam autem
+            incidunt iste vel quae officiis.
+          </p>
         </main>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

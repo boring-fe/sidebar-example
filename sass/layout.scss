@@ -1,5 +1,11 @@
 $sidebar-width: 300px;
-$open-animation-duration: 0.2s;
+$open-animation-duration: 0.4s;
+$sidebar-background-color: #fff;
+
+@mixin controlActive {
+  color: rgba(255, 255, 255, 1);
+}
+
 .page-viewport {
   overflow-x: hidden;
 }
@@ -10,11 +16,6 @@ $open-animation-duration: 0.2s;
   width: 100vw;
   transition: margin-left $open-animation-duration;
   &__sidebar {
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: $sidebar-width;
-    background: yellow;
-    height: 100vh;
     position: fixed;
     left: -$sidebar-width;
     transition: left $open-animation-duration;
@@ -22,7 +23,6 @@ $open-animation-duration: 0.2s;
   &__main {
     width: 100vw;
     min-height: 100vh;
-    background: green;
     flex-shrink: 0;
     flex-grow: 1;
   }
@@ -33,4 +33,89 @@ $open-animation-duration: 0.2s;
     }
     margin-left: $sidebar-width;
   }
+}
+
+.sidebar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: $sidebar-width;
+  background-color: $sidebar-background-color;
+  height: 100vh;
+  z-index: 10;
+  &__control {
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    outline: none;
+    right: 0;
+    transform: translateX(100%);
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 1;
+    cursor: pointer;
+    &:focus {
+      @include controlActive;
+    }
+    &:hover {
+      @include controlActive;
+    }
+  }
+}
+
+@mixin itemHover($color) {
+  .side-menu__link {
+    &:hover {
+      &::before {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.side-menu {
+  &__link {
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 2rem 1rem 2rem 30px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      transition: all 0.2s;
+      &::before {
+        transition: all 0.2s;
+        width: 15px;
+      }
+    }
+  }
+  &__item {
+    &:nth-child(1n) {
+      @include itemHover(#e57022);
+    }
+    &:nth-child(2n) {
+      @include itemHover(#225ce5);
+    }
+    &:nth-child(3n) {
+      @include itemHover(#22e542);
+    }
+  }
+}
+
+.baner {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1513735718075-2e2d37cb7cc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3289&q=80);
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
